@@ -15,9 +15,9 @@
       <input class="input" type="text" placeholder="輸入待辦事項.." v-model="text" @keyup.enter="addTodos">
       <button @click="addTodos" class="btn">新增</button>
       <div class="btn-group">
-        <button @click="filterBtn='all'" class="filterBtn" :class="{filter:filterBtn == 'all'}">查看全部</button>
-        <button @click="filterBtn='finish'" class="filterBtn" :class="{filter:filterBtn == 'finish'}">已完成</button>
-        <button @click="filterBtn='unfinish'" class="filterBtn" :class="{filter:filterBtn == 'unfinish'}">未完成</button>
+        <button @click="filterBtn='all'" class="filterBtn" :class="{filter:filterBtn == 'all'}">查看全部 <span class="length">{{todos.length}}</span></button>
+        <button @click="filterBtn='finish'" class="filterBtn" :class="{filter:filterBtn == 'finish'}">已完成 <span class="length">{{finishLength}}</span></button>
+        <button @click="filterBtn='unfinish'" class="filterBtn" :class="{filter:filterBtn == 'unfinish'}">未完成 <span class="length">{{unfinishLength}}</span></button>
         <button @click="allClear" class="btn clear">全部清除</button>
       </div>
       <ul class="lists">

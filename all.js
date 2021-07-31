@@ -49,7 +49,7 @@ const app = {
     allClear(){
       if(window.confirm("確定要全部清除嗎？")){
         this.todos.length = 0;
-        localStorage.clear();  
+        localStorage.clear();
         console.log('全部清除');
       } else {
         console.log("取消");
@@ -59,14 +59,20 @@ const app = {
   computed: {
     filterTodos() {
       switch(this.filterBtn){
-        case "finish":    
+        case "finish":
           return this.todos.filter(item => item.status == true );
         case "unfinish":
           return this.todos.filter(item => !item.status );
-        default: 
+        default:
           return this.todos;
       }
     },
+    finishLength(){
+      return this.todos.filter(item => item.status == true ).length;
+    },
+    unfinishLength(){
+      return this.todos.filter(item => !item.status ).length;
+    }
   },
   mounted(){
     this.getTodos();

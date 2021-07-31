@@ -74,7 +74,7 @@ h1 {
 }
 
 .filterBtn {
-    padding: 10px;
+    padding: 10px 25px 10px 10px;
     font-size: 20px;
     background-color: #e9e9e9;
     display: inline-block;
@@ -82,17 +82,32 @@ h1 {
     border-style: none;
     border-bottom: 1px solid black;
     border-top-right-radius: 20px;
+    position: relative;
 }
 .filter {
     background-color: #F2F2F2;
     border: 1px solid black;
     border-bottom: transparent;
 }
+.btn-group .filter .length {
+    border-top:1px solid black;
+    border-right: 1px solid black;
+    background-color: #c3c7db;
+}
 .btn-group {
     margin-top: 20px;
 }
 .btn-group button:hover{
     cursor: pointer;
+}
+.btn-group .length{
+    position: absolute;
+    font-size: 14px;
+    border-top-right-radius: 14px;
+    background-color: #dbd9d0;
+    padding: 15px 5px;
+    top: 0;
+    right: 0;
 }
 .lists {
     width: 350px;
