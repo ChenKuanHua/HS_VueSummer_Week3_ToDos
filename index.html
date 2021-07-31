@@ -25,8 +25,8 @@
           <li>
             <input class="edit" v-if="editId === item.id" type="text" v-model="editTodo" @keyup.enter="editDone(item)" @keyup.esc="editCancel">
             <div v-else>
-              <input class="cbx" type="checkbox" @click="writeCheck(item)" :id="item.id" :checked="item.status">
-              <label @dblclick="editTodos(item)" :class="item.status ? 'del': ''" :for="item.id" title="點 2 下編輯">{{ item.note }}</label>
+              <input class="cbx" type="checkbox" @click="writeCheck(item)" :checked="item.status" title="完成">
+              <label @dblclick="editTodos(item)" :class="item.status ? 'del': ''" title="點 2 下編輯">{{ item.note }}</label>
             </div>
             <i @click="removeTodos(index)" class="fas fa-minus-circle" title="刪除"></i>
           </li>
