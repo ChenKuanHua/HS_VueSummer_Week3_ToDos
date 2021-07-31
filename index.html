@@ -12,8 +12,10 @@
   <div id="app">
     <div class="wrap">
       <h1>待辦事項</h1>
-      <input class="input" type="text" placeholder="輸入待辦事項.." v-model="text" @keyup.enter="addTodos">
-      <button @click="addTodos" class="btn">新增</button>
+      <div class="input-group">
+          <input class="input" type="text" placeholder="輸入待辦事項.." v-model="text" @keyup.enter="addTodos">
+          <button @click="addTodos" class="btn">新增</button>
+      </div>
       <div class="btn-group">
         <button @click="filterBtn='all'" class="filterBtn" :class="{filter:filterBtn == 'all'}">查看全部 <span class="length">{{todos.length}}</span></button>
         <button @click="filterBtn='finish'" class="filterBtn" :class="{filter:filterBtn == 'finish'}">已完成 <span class="length">{{finishLength}}</span></button>
