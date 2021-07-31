@@ -98,7 +98,7 @@ h1 {
     width: 350px;
     margin: 0px auto;
     text-align: left;
-    box-sizing: content-box;
+    font-size: 22px;
     padding: 13px;
 }
 .lists .cbx {
