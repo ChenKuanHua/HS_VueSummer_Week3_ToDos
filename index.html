@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="all.css">
+  <title>Vue Week3 Todos</title>
+</head>
+<body>
+  <div id="app">
+    <div class="wrap">
+      <h1>待辦事項</h1>
+      <input class="input" type="text" placeholder="輸入待辦事項.." v-model="text" @keyup.enter="addTodos">
+      <button @click="addTodos" class="btn">新增</button>
+      <div class="btn-group">
+        <button @click="filterBtn='all'" class="filterBtn" :class="{filter:filterBtn == 'all'}">查看全部</button>
+        <button @click="filterBtn='finish'" class="filterBtn" :class="{filter:filterBtn == 'finish'}">已完成</button>
+        <button @click="filterBtn='unfinish'" class="filterBtn" :class="{filter:filterBtn == 'unfinish'}">未完成</button>
+        <button @click="allClear" class="btn clear">全部清除</button>
+      </div>
+      <ul class="lists">
+        <template v-for="(item,index) in filterTodos" :key="index">
+          <li>
+            <input class="edit" v-if="editId === item.id" type="text" v-model="editTodo" @keyup.enter="editDone(item)" @keyup.esc="editCancel">
+            <div v-else>
+              <input class="cbx" type="checkbox" @click="writeCheck(item)" :id="item.id" :checked="item.status">
+              <label @dblclick="editTodos(item)" :class="item.status ? 'del': ''" :for="item.id" title="點 2 下編輯">{{ item.note }}</label>
+            </div>
+            <i @click="removeTodos(index)" class="fas fa-minus-circle" title="刪除"></i>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </div>
+  <script type="module" src="all.js"></script>
+</body>
+</html>
